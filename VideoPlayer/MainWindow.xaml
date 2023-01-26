@@ -1,0 +1,48 @@
+﻿<Window x:Class="VideoPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VideoPlayer"
+        mc:Ignorable="d"
+        Title="VideoPlayer" Height="450" Width="800"
+        Style="{DynamicResource Window}">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.25*"/>
+        </Grid.RowDefinitions>
+        <MediaElement MediaOpened="myMedia_MediaOpened" Name="myMedia" Grid.RowSpan="2" Margin="3"/>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Click="openFile">Open</Button>
+                <Button Click="Play" Grid.Column="1">▶</Button>
+                <Button Click="Pause" Grid.Column="2">⏸</Button>
+                <Button Click="Stop" Grid.Column="3">⏹</Button>
+            </Grid>
+            <Border Margin="1" Grid.Column="2" Background="#FF302F2F">
+                <Slider ValueChanged="mySlider_ValueChanged" VerticalAlignment="Center" Margin="2" Name="mySlider"/>
+            </Border>
+
+        </Grid>
+    </Grid>
+</Window>
+        
